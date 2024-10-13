@@ -1,6 +1,6 @@
 # Abstractly
 
-## "Attention Is All You Need" - A Detailed Brief Summary 
+# "Attention Is All You Need" - A Detailed Brief Summary 
 
 **1) Main Focus of the Paper:**
 
@@ -61,7 +61,7 @@ The paper introduces the Transformer, a novel architecture based purely on atten
 
 
 
-## Brief Summary of "PEGASUS: Pre-training with Extracted Gap-sentences for Abstractive Summarization"
+# Brief Summary of "PEGASUS: Pre-training with Extracted Gap-sentences for Abstractive Summarization"
 
 **Abstract:** This paper introduces PEGASUS, a novel approach to abstractive text summarization that leverages a self-supervised pre-training objective called Gap Sentences Generation (GSG). GSG masks important sentences within a document and tasks the model with reconstructing them, mimicking the summarization process.  The authors demonstrate state-of-the-art performance on 12 diverse summarization datasets, highlighting PEGASUS's effectiveness across domains, especially in low-resource settings. Human evaluations confirm that PEGASUS summaries are comparable to human-written ones.
 
@@ -119,7 +119,7 @@ The paper introduces the Transformer, a novel architecture based purely on atten
 
 
 
-## BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension - A Detailed Brief Summary
+# BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension - A Detailed Brief Summary
 
 **1) Main Focus of the Paper:**
 
@@ -174,7 +174,7 @@ BART significantly advances the field of pre-trained language models by demonstr
 
 
 
-## Text Summarization of Medical Documents using Abstractive Techniques: A Detailed Brief Summary
+# Text Summarization of Medical Documents using Abstractive Techniques: A Detailed Brief Summary
 
 This paper focuses on applying abstractive text summarization techniques to help medical researchers quickly grasp the essence of large volumes of medical literature.  Here's a breakdown of the key points:
 
