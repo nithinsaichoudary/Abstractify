@@ -1,0 +1,19 @@
+.upload-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    /* Adjust for vertical centering */
+}
+
+.upload-box {
+    width: 450px;
+}
+
+textarea {
+    resize: none;
+}
+
+button {
+    font-weight: 500;
+}

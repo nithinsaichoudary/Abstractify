@@ -1,20 +1,28 @@
 import React from 'react';
+import './Sidebar.css';  // Custom Sidebar CSS
 
 function Sidebar() {
   return (
-    <div className="sidebar">
-      <div className="logo">
-        <img src="/logo.png" alt="DataGriffin Logo" />
+    <div className="bg-light border-end sidebar p-3">
+      <div className="d-flex align-items-center mb-4">
+        <h4 className="fw-bold m-0">Abstractify</h4>
       </div>
-      <ul className="menu">
-        <li className="active"><a href="#">Home</a></li>
-        <li><a href="#">Upload</a></li>
-        <li><a href="#">Chat With Data</a></li>
-        <li><a href="#">Data Cleaning</a></li>
-        <li><a href="#">Visualization</a></li>
-        <li><a href="#">Scraper</a></li>
-        <li><a href="#">Settings</a></li>
-        <li><a href="#">Sign Out</a></li>
+      <ul className="nav flex-column">
+        <li className="nav-item py-2">
+          <i className="bi bi-house-door me-2"></i> Home
+        </li>
+        <li className="nav-item py-2">
+          <i className="bi bi-info-circle me-2"></i> About
+        </li>
+        <li className="nav-item py-2">
+          <i className="bi bi-clock-history me-2"></i> History
+        </li>
+        <li className="nav-item py-2">
+          <i className="bi bi-gear me-2"></i> Settings
+        </li>
+        <li className="nav-item py-2">
+          <i className="bi bi-box-arrow-left me-2"></i> Sign Out
+        </li>
       </ul>
     </div>
   );

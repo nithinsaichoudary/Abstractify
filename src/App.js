@@ -1,13 +1,14 @@
 import React from 'react';
 import Sidebar from './components/Sidebar';
-import Upload from './components/Upload';
+import MainContent from './components/MainContent';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="d-flex vh-100">
       <Sidebar />
-      <Upload />
+      <MainContent />
     </div>
   );
 }
