@@ -17,3 +17,23 @@ textarea {
 button {
     font-weight: 500;
 }
+
+
+
+.summary-container {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.summary-container h4 {
+    color: #333;
+}
+
+.summary-container p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+}
