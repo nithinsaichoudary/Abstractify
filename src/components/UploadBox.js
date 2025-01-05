@@ -69,7 +69,7 @@ function UploadBox() {
 
   return (
     <div className="upload-container">
-      <div className="shadow-lg p-5 rounded bg-white text-center upload-box">
+      <div className="shadow-lg rounded bg-white text-center upload-box-custom">
         <h5 className="mb-4">Upload your PDF file or paste content for Summarization</h5>
 
         {/* File Upload Input */}

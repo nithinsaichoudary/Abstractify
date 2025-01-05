@@ -10,6 +10,8 @@ const FormData = require('form-data');
 const app = express();
 const port = process.env.PORT || 5001;
 
+const flaskURL = 'http://172.18.220.162:5000'
+
 // Middleware
 app.use(cors());
 app.use(express.json());
@@ -58,24 +60,28 @@ app.post('/upload', upload.single('file'), (req, res) => {
       const form = new FormData();
       form.append('pdf_file', fs.createReadStream(filePath));
 
-      axios.post('http://172.18.219.230:5000/get_from_pdf_file', form, {
+      axios.post(`${flaskURL}/get_from_pdf_file`, form, {
         headers: {
           ...form.getHeaders(),
         },
       })
       .then(response => {
         const extractedText = response.data.text; // Store the extracted text in a variable
-        axios.post('http://172.18.219.230:5000/summarize/bart', { text: extractedText })
+        const wordCount = extractedText.split(' ').length;
+
+        const summarizeEndpoint = wordCount > 350 ? '/summarize/pegasus' : '/summarize/bart';
+
+        axios.post(`${flaskURL}${summarizeEndpoint}`, { text: extractedText })
           .then(summarizeResponse => {
-            responseObj = {
-              message: 'File uploaded and summarized successfully',
-              summary: summarizeResponse.data.summary, // Include the summarized text in the response
-            };
-            res.json(responseObj);
+        responseObj = {
+          message: 'File uploaded and summarized successfully',
+          summary: summarizeResponse.data.summary, // Include the summarized text in the response
+        };
+        res.json(responseObj);
           })
           .catch(summarizeError => {
-            console.error(`Error summarizing text: ${summarizeError}`);
-            res.status(500).json({ error: 'Failed to summarize text' });
+        console.error(`Error summarizing text: ${summarizeError}`);
+        res.status(500).json({ error: 'Failed to summarize text' });
           });
       })
       .catch(error => {
@@ -98,7 +104,9 @@ app.post('/upload', upload.single('file'), (req, res) => {
   
   // Handle plain text uploads (via textarea)
   else if (text) {
-    axios.post('http://172.18.219.230:5000/summarize/bart', { text: text })
+    const wordCount = text.split(' ').length;
+    const summarizeEndpoint = wordCount > 350 ? '/summarize/pegasus' : '/summarize/bart';
+    axios.post(`${flaskURL}${summarizeEndpoint}`, { text: text })
       .then(summarizeResponse => {
         responseObj = {
           message: 'Text uploaded and summarized successfully',
@@ -113,6 +121,20 @@ app.post('/upload', upload.single('file'), (req, res) => {
   } else {
     res.status(400).json({ error: 'No file or text uploaded' });
   }
+});
+
+// Chatbot Route
+app.post('/chat', (req, res) => {
+  const { question } = req.body;
+
+  axios.post(`${flaskURL}/question_answering`, { question: question })
+    .then(response => {
+      res.json(response.data);
+    })
+    .catch(error => {
+      console.error(`Error processing chat message: ${error}`);
+      res.status(500).json({ error: 'Failed to process chat message' });
+    });
 });
 
 // Start server

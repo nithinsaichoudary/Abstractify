@@ -2,12 +2,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 80vh;
+    height: 70vh;
     /* Adjust for vertical centering */
 }
 
-.upload-box {
-    width: 450px;
+.upload-box-custom {
+    width: 900px;
+    height: 500px;
+    padding-top: 100px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 40px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+
 }
 
 textarea {
@@ -37,3 +46,6 @@ button {
     line-height: 1.5;
     color: #555;
 }
+
+
+

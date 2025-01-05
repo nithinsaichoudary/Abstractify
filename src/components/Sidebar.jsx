@@ -1,5 +1,6 @@
 import React from 'react';
-import './Sidebar.css';  // Custom Sidebar CSS
+import { Link } from 'react-router-dom';
+import './Sidebar.css';
 
 function Sidebar() {
   return (
@@ -9,19 +10,19 @@ function Sidebar() {
       </div>
       <ul className="nav flex-column">
         <li className="nav-item py-2">
-          <i className="bi bi-house-door me-2"></i> Home
+          <Link to="/" className="text-decoration-none text-dark">
+            <i className="bi bi-house-door me-2"></i> Home
+          </Link>
         </li>
         <li className="nav-item py-2">
-          <i className="bi bi-info-circle me-2"></i> About
+          <Link to="/chat" className="text-decoration-none text-dark">
+            <i className="bi bi-chat-left me-2"></i> Chat with data
+          </Link>
         </li>
         <li className="nav-item py-2">
-          <i className="bi bi-clock-history me-2"></i> History
-        </li>
-        <li className="nav-item py-2">
-          <i className="bi bi-gear me-2"></i> Settings
-        </li>
-        <li className="nav-item py-2">
-          <i className="bi bi-box-arrow-left me-2"></i> Sign Out
+          <Link to="/settings" className="text-decoration-none text-dark">
+            <i className="bi bi-gear me-2"></i> Settings
+          </Link>
         </li>
       </ul>
     </div>
