@@ -8,21 +8,21 @@ const ChatBox = () => {
 
   const handleSend = () => {
     if (input.trim() !== '') {
-      setMessages([...messages, { question: input, type: 'user' }]);
+      setMessages([...messages, { text: input, type: 'user' }]);
       setInput('');
 
       axios.post('http://localhost:5001/chat', { question: input })
         .then(response => {
           setMessages((prevMessages) => [
-        ...prevMessages,
-        { text: response.data.answer, type: 'ai' }
+            ...prevMessages,
+            { text: response.data.answer, type: 'ai' }
           ]);
         })
         .catch(error => {
           console.error('Error processing chat message:', error);
           setMessages((prevMessages) => [
-        ...prevMessages,
-        { text: 'Failed to get a response from the server.', type: 'error' }
+            ...prevMessages,
+            { text: 'Failed to get a response from the server.', type: 'error' }
           ]);
         });
     }

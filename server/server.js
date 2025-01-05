@@ -10,7 +10,7 @@ const FormData = require('form-data');
 const app = express();
 const port = process.env.PORT || 5001;
 
-const flaskURL = 'http://172.18.220.162:5000'
+const flaskURL = 'http://172.18.220.240:5000'
 
 // Middleware
 app.use(cors());
